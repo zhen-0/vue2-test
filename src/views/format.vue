@@ -2,14 +2,23 @@
 <!--eslint&prrient 格式化 -->
     <div>
     eslint&prrient 格式化{{user}}
+    ---------------
+    {{reUser}}
     </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
+import { fn1, fn3, fn2 } from 'utils'
+import { types } from 'consts'
+console.log(types)
+fn1(types.url_encoded, types.json, types.form_data, types.octet_stream)
+fn3()
+fn2()
 export default {
   computed: {
-    ...mapState(['user'])
+    ...mapState(['user']),
+    ...mapGetters(['reUser'])
   }
 
 }
