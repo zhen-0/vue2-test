@@ -47,3 +47,9 @@
 │    └── format.vue
 └── vue.config.js       //vue配置
 ```
+
+### 规范commit 
+
+参考链接[Git Commit 规范与配置](https://juejin.cn/post/7091276495972204580#heading-9)
+
+提交时，必须用英文冒号并且冒号后加空格
