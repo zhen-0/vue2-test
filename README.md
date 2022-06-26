@@ -1,5 +1,9 @@
 ## **文档结构**
 
+> [前端工程化那些事](https://juejin.cn/post/6844904132512317453#heading-17)
+> 
+> [Vue 前端代码开发规范](https://juejin.cn/post/7030637855290425374)
+
 ```
 ├── .editorconfig
 ├── .gitignore   
