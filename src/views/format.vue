@@ -3,6 +3,7 @@
     <div>
     eslint&prrient 格式化{{user}}
     ---------------
+    commitizen
     {{reUser}}
     </div>
 </template>
