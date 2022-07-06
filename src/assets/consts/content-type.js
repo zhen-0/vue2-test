@@ -9,5 +9,5 @@ export default {
   url_encoded: URL_ENCODED,
   json: JSON,
   form_data: FORM_DATA,
-  octet_stream: OCTET_STREAM
+  octet_stream: OCTET_STREAM,
 }
