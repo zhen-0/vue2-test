@@ -1,11 +1,10 @@
 <template>
-<!--eslint&prrient 格式化 -->
-    <div>
-    eslint&prrient 格式化{{user}}
-    ---------------
-    commitizen
-    {{reUser}}
-    </div>
+  <!--eslint&prrient 格式化 -->
+  <div>
+    eslint&prrient 格式化{{ user }}
+    --------------- commitizen
+    {{ reUser }}
+  </div>
 </template>
 
 <script>
@@ -17,14 +16,17 @@ fn1(types.url_encoded, types.json, types.form_data, types.octet_stream)
 fn3()
 fn2()
 export default {
+  name: 'FormatCode',
   computed: {
-    ...mapState(['user']),
-    ...mapGetters(['reUser'])
-  }
-
+    ...mapState([ 'user' ]),
+    ...mapGetters([ 'reUser' ]),
+  },
 }
 </script>
 
 <style scoped>
-
+.app {
+  top: 10px;
+  height: 10px;
+}
 </style>

@@ -9,7 +9,7 @@ export default [
   },
   {
     path: '/format',
-    name: 'Format',
+    name: 'FormatCode',
     component: format
   }
 ]

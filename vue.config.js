@@ -1,7 +1,7 @@
 module.exports = {
   configureWebpack: {
     resolve: {
-      alias: { // 路径别名
+      alias: {
         api: '@/api',
         consts: '@/assets/consts',
         css: '@/assets/css',
@@ -10,9 +10,9 @@ module.exports = {
         medias: '@/assets/medias',
         components: '@/components',
         config: '@/config',
-        utils: '@/utils'
-      }
-    }
+        utils: '@/utils',
+      },
+    },
 
-  }
+  },
 }
