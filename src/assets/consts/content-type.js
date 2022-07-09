@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const URL_ENCODED = 'application/x-www-form-urlencoded'
 const JSON = 'application/json'
 // form-data多用于文件上传   boundary不确定

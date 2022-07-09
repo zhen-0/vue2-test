@@ -58,13 +58,10 @@ export const $get = (url, params) => new Promise((resolve, reject) => {
 })
 
 // post请求
-// eslint-disable-next-line func-style
-export const $post = function $post() {
-  return new Promise((resolve, reject) => {
-    instance.post(url, params).then(res =>
-      resolve(res))
-      .catch(err => {
-        reject(err)
-      })
-  })
-}
+export const $post = (url, params, config) => new Promise((resolve, reject) => {
+  instance.post(url, params).then(res =>
+    resolve(res))
+    .catch(err => {
+      reject(err)
+    })
+})
