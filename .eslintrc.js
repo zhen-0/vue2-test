@@ -1,5 +1,6 @@
 module.exports = {
   parserOptions: {
+		parser: "babel-eslint",
     ecmaVersion: 10,
     sourceType: 'module',
   },
@@ -8,7 +9,7 @@ module.exports = {
     node: true,
     es6: true,
   },
-  extends: [ 'eslint:recommended', 'plugin:vue/recommended' ],
+  extends: ['./.eslintrc-auto-import.json', 'eslint:recommended', 'plugin:vue/recommended' ],
   rules: {
     'comma-dangle': [ 'error', {
       arrays: 'never',
@@ -556,16 +557,15 @@ module.exports = {
     // 强制在 yield* 表达式中 * 周围使用空格
     'yield-star-spacing': [ 'error' ],
   },
-  overrides: [
-    {
-      files: [ '*.vue' ],
-      parser: 'vue-eslint-parser',
+  // overrides: [
+	// 	{
+	// 		files:['*.js'],
+	// 		parser: "babel-eslint",
+	// 	},
+  //   {
+  //     files: [ '*.vue' ],
+  //     parser: 'vue-eslint-parser',
+  //   },
 
-      /*
-       * parserOptions: {
-       *   parser: '@typescript-eslint/parser',
-       * },
-       */
-    }
-  ],
+  // ],
 }

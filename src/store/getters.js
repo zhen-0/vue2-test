@@ -1,5 +1,5 @@
 export default {
-  reUser (state) {
+  reUser(state) {
     return `----123${state.user}`
-  }
+  },
 }

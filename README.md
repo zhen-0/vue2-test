@@ -124,7 +124,103 @@ stylelint-config-recess-order  //stylelint属性排序规则集
 postcss-html  //解析html.类html(.vue)文件
 postcss-scss  //解析scss文件
 postcss-less  //解析less文件
+
 ```
+## 工具链
+### unpluin系列  自动导入模块、组件、图标，新增后需要重启，来更新新增内容
+- unplugin-auto-import
+```
+//vue.config.js
+    plugins: [
+      AutoImport({
+        include: [
+          /\.[tj]sx?$/,
+          /\.vue$/, /\.vue\?vue/,
+          /\.md$/
+        ],
+        imports: [
+          'vue',
+          'vue-router',
+          'vuex'
+        ],
+        dts: false,
+        eslintrc: {
+          // 需要更新.eslintrc-auto-import.为true
+          enabled: true,
+          filepath: './.eslintrc-auto-import.json',
+          globalsPropValue: true,
+        },
+        dirs: [
+					//自定义的导入，支持export导出，默认导出需export { default as dayjs } from 'dayjs'
+          './src/utils'
+        ],
+      })
+    ]
+
+		//.eslintrc.js
+		//解决eslint的未定义报错
+		extends: ['./.eslintrc-auto-import.json']
+```
+- unplugin-vue-components
+```
+//vue.config.js  新建公共组件后，需要重启，不然无法识别到新加组件
+plugins: [
+      AutoComponents({
+        // relative paths to the directory to search for components.
+        dirs: [ 'src/components' ],
+        // valid file extensions for components.
+        extensions: [ 'vue' ],
+        // search for subdirectories
+        deep: true,
+        // resolvers for custom components
+        resolvers: [
+          VantResolver()  //第三方UI库解析器，但函数组件需要手动添加，如Toast等，
+        ],
+        dts: false,  //for no typescript
+      })
+    ],
+
+		//main.js
+		import { Toast, Dialog, Notify } from 'vant'
+		import 'vant/es/toast/style'  //需要添加样式
+		Vue.use(Toast)
+```
+
+- unplugin-icons
+```
+//vue.config.js   插件加载图标，需要多试几次重启
+plugins: [
+      AutoComponents({
+        resolvers: [
+          IconsResolver({    //自动导入解析的图标
+            defaultClass: 'icons',
+            prefix: false,
+            customCollections: [
+              'my-icons'
+            ],
+          })
+        ],
+        dts: false,
+      }),
+      AutoIcons({
+        compiler: 'vue2',
+        customCollections: {
+          'my-icons': FileSystemIconLoader(   //图标集名称，需要多单词，不然会解析卡住
+            './src/assets/icons',
+            svg => svg.replace(/^<svg /, '<svg fill="currentColor" ')
+          ),
+        },
+      })
+    ],
+
+		// 加载的图标的class为icon,文档的自定义设置后但不生效，再看看
+		.App.vue
+		.icon {
+			width: 1em !important;
+			height: 1em !important;
+		}
+```
+
 
 ## 问题
 ```
