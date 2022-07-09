@@ -354,7 +354,7 @@ module.exports = {
     // 要求或禁止使用命名的 function 表达式
     'func-names': [ 'off' ],
     // 强制一致地使用 function 声明或表达式
-    'func-style': [ 'error', 'declaration' ],
+    'func-style': [ 'error', 'declaration' ,{ "allowArrowFunctions": true }],
     // 强制在函数括号内使用一致的换行
     'function-paren-newline': [ 'error' ],
     // 禁用指定的标识符
