@@ -13,6 +13,7 @@
     </van-button>
     <my-icons-jiaofei />
     <my-icons-scan />
+    <Lottie />
   </div>
 </template>
 
@@ -27,6 +28,7 @@ export default {
   data() {
     return {
       now: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+      lottie: null,
     }
   },
   computed: {
