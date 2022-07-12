@@ -4,7 +4,7 @@
 >
 > [Vue 前端代码开发规范](https://juejin.cn/post/7030637855290425374)
 
-```
+```js
 ├── .editorconfig
 ├── .gitignore
 ├── babel.config.js
@@ -65,35 +65,35 @@ EditorConfig for Visual Studio Code
 
 ## eslint格式化
 ### 配置文件
-```
+```js
 .eslintrc.js
 ```
 
 ### vscode插件
-```
+```js
 eslint
 ```
 
 ### vue/npm
-```
+```js
 eslint-plugin-vue
 vue-eslint-parser
 ```
 ### react/npm
-```
+```js
 eslint-plugin-react
 eslint-plugin-jsx-a11y
 eslint-plugin-react-hooks
 ```
 ### ts/npm
-```
+```js
 @typescript-eslint/eslint-plugin
 @typescript-eslint/parser
 ```
 
 ## commit规范
 ### commit/npm
-```
+```js
 husky  //注册git 钩子
 lint-staged  //对暂存区的文件执行命令
 commitlint   //规范提交信息
@@ -117,7 +117,7 @@ chore：不属于以上类型的其他类型(日常事务)
 提交时，必须用英文冒号并且冒号后加空格
 ```
 ## css规范
-```
+```js
 stylelint
 stylelint-config-standard   //stylelint规则集
 stylelint-config-recess-order  //stylelint属性排序规则集
@@ -126,10 +126,11 @@ postcss-scss  //解析scss文件
 postcss-less  //解析less文件
 
 ```
-## 工具链
-### unpluin系列  自动导入模块、组件、图标，新增后需要重启，来更新新增内容
-- unplugin-auto-import
-```
+> # 自动导入模块、组件、图标工具链
+> unpluin系列  自动导入模块、组件、图标，新增后需要重启，来更新新增内容
+
+- ## unplugin-auto-import
+```js
 //vue.config.js
     plugins: [
       AutoImport({
@@ -161,8 +162,8 @@ postcss-less  //解析less文件
 		//解决eslint的未定义报错
 		extends: ['./.eslintrc-auto-import.json']
 ```
-- unplugin-vue-components
-```
+- ## unplugin-vue-components
+```js
 //vue.config.js  新建公共组件后，需要重启，不然无法识别到新加组件
 plugins: [
       AutoComponents({
@@ -186,8 +187,9 @@ plugins: [
 		Vue.use(Toast)
 ```
 
-- unplugin-icons
-```
+- ## unplugin-
+
+```js
 //vue.config.js   插件加载图标，需要多试几次重启
 plugins: [
       AutoComponents({
@@ -221,30 +223,79 @@ plugins: [
 		}
 ```
 
-### dayjs
 
-### 动画 lottie、svga
+> # css原子化
+> 灵活明晰地绘制UI界面的css方式
 
-```
-lottie
+- ## unocss
 
-```
+```js
+//vue.config.js
+const Unocss = require('unocss/webpack').default
+ plugins: [
+      Unocss({
+        presets: [
+          presetAttributify({ }),   //unocss规则集，选择配置
+          presetUno()
+        ],
+      }),
+		]
 
-```
-svga
-```
-
-### css库  unocss、tailWindcss
-
-```
-unocss
-
-```
-
-```
-tailWindcss
+//main.js
+import 'uno.css'
 
 ```
+- ## tailWindcss
+
+```js
+
+```
+
+
+> # 工具型npm库
+> 指专门的实用npm包，如函数库（vueUse）、日期的格式化(dayjs)、深克隆(loadsh)
+
+> 对于默认导出的工具包，可用unplugin-auto-import自动导入
+```js
+//  utils/import-npm.js
+export { default as dayjs } from 'dayjs'
+export { default as lottie } from 'lottie-web'
+export { default as svga } from 'svgaplayerweb'
+```
+
+
+- ## vueUse
+```js
+//vue.config.js
+ plugins: [
+      AutoImport({
+        imports: [
+          '@vueuse/core'  //支持unplugin-auto-import，进行自动导入，全局使用函数
+        ],
+      })
+    ]
+
+//xxx.vue
+
+ created() {
+    const { x, y, } = useMouse()  //x、y实质是obj,来保持双向绑定
+    this.x = x
+    this.y = y
+  }
+
+<div>vueUse:{{ x.value }}-{{ y.value }}</div>   //template中需要使用xx.value获取值
+```
+
+- ## dayjs
+
+> ### [dayjs文档](https://dayjs.fenxianglu.cn/category/)
+
+- ## lottie、svga
+
+> ### [lottie文档](http://airbnb.io/lottie/#/web?id=usage)
+
+> ### [svga文档](https://github.com/svga/SVGAPlayer-Web)
+
 
 ## 问题
 ```

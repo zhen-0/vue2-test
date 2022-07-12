@@ -4,7 +4,10 @@ import router from './router'
 import store from './store'
 import { Toast, Dialog, Notify } from 'vant'
 import 'vant/es/toast/style'
+import 'uno.css'
+import VueCompositionAPI from '@vue/composition-api'
 
+Vue.use(VueCompositionAPI)
 Vue.config.productionTip = false
 
 

@@ -4,6 +4,8 @@ const { VantResolver, } = require('unplugin-vue-components/resolvers')
 const AutoIcons = require('unplugin-icons/webpack')
 const { FileSystemIconLoader, } = require('unplugin-icons/loaders')
 const IconsResolver = require('unplugin-icons/resolver')
+const Unocss = require('unocss/webpack').default
+const { presetAttributify, presetUno, } = require('unocss')
 
 module.exports = {
   configureWebpack: {
@@ -21,6 +23,12 @@ module.exports = {
       },
     },
     plugins: [
+      Unocss({
+        presets: [
+          presetAttributify({ }),
+          presetUno()
+        ],
+      }),
       AutoImport({
         include: [
           /\.[tj]sx?$/,
@@ -30,7 +38,8 @@ module.exports = {
         imports: [
           'vue',
           'vue-router',
-          'vuex'
+          'vuex',
+          '@vueuse/core'
         ],
         dts: false,
         eslintrc: {

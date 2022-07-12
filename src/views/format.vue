@@ -11,9 +11,15 @@
     >
       主要按钮
     </van-button>
-    <my-icons-jiaofei />
+    <my-icons-jiaofei
+      m-2
+      rounded
+      text-teal-400
+    />
     <my-icons-scan />
     <Lottie />
+    --------------------
+    <div>vueUse:{{ x.value }}-{{ y.value }}</div>
   </div>
 </template>
 
@@ -29,11 +35,18 @@ export default {
     return {
       now: dayjs().format('YYYY-MM-DD HH:mm:ss'),
       lottie: null,
+      x: 0,
+      y: 0,
     }
   },
   computed: {
     ...mapState([ 'user' ]),
     ...mapGetters([ 'reUser' ]),
+  },
+  created() {
+    const { x, y, } = useMouse()
+    this.x = x
+    this.y = y
   },
   methods: {
     toast() {
