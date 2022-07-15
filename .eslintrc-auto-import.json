@@ -85,6 +85,7 @@
     "refDefault": true,
     "refThrottled": true,
     "refWithControl": true,
+    "relativeTimeDayjs": true,
     "resolveComponent": true,
     "resolveRef": true,
     "resolveUnref": true,

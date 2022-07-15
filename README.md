@@ -289,6 +289,17 @@ export { default as svga } from 'svgaplayerweb'
 - ## dayjs
 
 > ### [dayjs文档](https://dayjs.fenxianglu.cn/category/)
+```
+//注册插件
+import dayjs_ from 'dayjs'
+export const relativeTimeDayjs = () => {
+  dayjs_.extend(relativeTime)
+}
+export const dayjs = dayjs_
+
+//xxx.vue  页面调用，来注册相应的插件
+relativeTimeDayjs()
+```
 
 - ## lottie、svga
 
@@ -296,6 +307,13 @@ export { default as svga } from 'svgaplayerweb'
 
 > ### [svga文档](https://github.com/svga/SVGAPlayer-Web)
 
+
+- ## editor（富文本编辑器）
+
+```
+wangeditor(基本使用)  -> components/dase/Wangeditor.vue
+
+```
 
 ## 问题
 ```

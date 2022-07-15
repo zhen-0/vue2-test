@@ -4,12 +4,18 @@
  * @Description:svga动画
 -->
 <template>
-  <div class="svga" />
+  <div
+    class="svga"
+  />
 </template>
 
 <script>
 export default {
-
+  name: 'Svga',
+  data() {
+    return {
+    }
+  },
 }
 </script>
 

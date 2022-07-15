@@ -5,6 +5,12 @@
  */
 
 // 导出dayjs,并用插件自动导出
-export { default as dayjs } from 'dayjs'
+import dayjs_ from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 export { default as lottie } from 'lottie-web'
 export { default as svga } from 'svgaplayerweb'
+
+export const relativeTimeDayjs = () => {
+  dayjs_.extend(relativeTime)
+}
+export const dayjs = dayjs_

@@ -3,7 +3,7 @@
   <div>
     eslint&prrient 格式化{{ user }}
     --------------- commitizen
-    {{ reUser }} {{ now }}
+    {{ reUser }}--- {{ now }}---{{ now2 }}
     <Vant />
     <van-button
       type="primary"
@@ -18,22 +18,29 @@
     />
     <my-icons-scan />
     <Lottie />
+    <Svga />
     --------------------
     <div>vueUse:{{ x.value }}-{{ y.value }}</div>
+    ----------------------------------
+    <WangEditor />
   </div>
 </template>
 
 <script>
 import { types } from 'consts'
+import Svga from '../components/base/Svga.vue'
+import WangEditor from '../components/base/WangEditor.vue'
 console.log(types)
 fn1(types.url_encoded, types.json, types.form_data, types.octet_stream)
 fn3()
 fn2()
+relativeTimeDayjs()
 export default {
   name: 'FormatCode',
   data() {
     return {
       now: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+      now2: dayjs().from(dayjs('1990')),
       lottie: null,
       x: 0,
       y: 0,
@@ -53,6 +60,8 @@ export default {
       this.$toast('提示内容')
     },
   },
+  components: { Svga,
+    WangEditor, },
 }
 </script>
 
