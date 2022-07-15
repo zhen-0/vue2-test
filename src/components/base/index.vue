@@ -9,10 +9,8 @@
 export default {
   methods: {
 
-
   },
 
 }
 </script>
-
 
