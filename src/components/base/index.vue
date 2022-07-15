@@ -9,13 +9,8 @@
 export default {
   methods: {
 
-    name () {
-
-    }
-  }
+  },
 
 }
 </script>
 
-<style  scoped>
-</style>
